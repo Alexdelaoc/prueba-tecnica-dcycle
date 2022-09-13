@@ -34,6 +34,11 @@
   flex-direction: column;
 }
 
+.main__prueba1-card.change {
+  opacity: 1;
+  transition: 1s;
+}
+
 .main__prueba1-card:hover {
   box-shadow: 5px 10px 20px 1px rgba(0, 0, 0, 0.253);
   transition: ease-in-out 1s;
@@ -48,6 +53,7 @@
 }
 
 .main__prueba1-card-section-box {
+  margin-bottom: 1vh;
   display: flex;
   justify-content: space-between;
 }
@@ -57,9 +63,18 @@
   width: 20vw;
 }
 
-.main__prueba1-card-section-box > article {
+.main__prueba1-card-section-box > div {
   margin: 0 3vw;
   width: 20vw;
+}
+
+.main__prueba1-card-section-box-error {
+  background-color: #ffa9a9;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: rgb(255, 87, 87);
+  padding: 10px;
 }
 
 .main__prueba1-card-section-box-nationalities {

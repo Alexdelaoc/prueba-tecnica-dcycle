@@ -5,11 +5,11 @@ const NameCard = (props) => {
 
   const paintNationalities = () => {
     return props.data.possible_nationalities.map(nationality => (
-      <article key={uuidv4()} className="main__prueba1-card-section-box-nationalities">
+      <div key={uuidv4()} className="main__prueba1-card-section-box-nationalities">
         <h4 className="main__prueba1-card-nationalities-h4">Nationality: {nationality.country_id}</h4>
         <img src={`https://flagcdn.com/${nationality.country_id.toLowerCase()}.svg`} alt={`${nationality.country_id}`} className="main__prueba1-card-section-box-nationalities-flag" />
-        <p>Probability: {nationality.probability * 100  + "%"}</p>
-      </article>
+        <p>Probability: {nationality.probability * 100 + "%"}</p>
+      </div>
     ))
   };
 
@@ -19,14 +19,22 @@ const NameCard = (props) => {
 
       <article className="main__prueba1-card-section">
         <div className="main__prueba1-card-section-box">
-          <p>Gender: {props.data.gender === null ? "Couldn't guess the gender, sorry!" : props.data.gender.charAt(0).toUpperCase() + props.data.gender.slice(1).toLowerCase()}</p>
-          <p>Gender probability: {props.data.probability === 0 ? "Couldn't guess the gender probability, sorry!" : props.data.probability * 100 + "%"}</p>
-          <p>Age: {props.data.possible_age === null ? "Couldn't guess the age, sorry!" : props.data.possible_age}</p>
+          {props.data.gender === null
+            ? <p className="main__prueba1-card-section-box-error"> Couldn't guess the gender, sorry! </p>
+            : <p className="main__prueba1-card-section-box-success"> Gender: {props.data.gender.charAt(0).toUpperCase() + props.data.gender.slice(1).toLowerCase()} </p>}
+
+          {props.data.probability === 0
+            ? <p className="main__prueba1-card-section-box-error"> Couldn't guess the gender probability, sorry! </p>
+            : <p className="main__prueba1-card-section-box-success"> Gender probability: {props.data.probability * 100 + "%"} </p>}
+
+          {props.data.possible_age === null
+            ? <p className="main__prueba1-card-section-box-error"> Couldn't guess the age, sorry! </p>
+            : <p className="main__prueba1-card-section-box-success"> Age: {props.data.possible_age} </p>}
         </div>
 
-        <div className="main__prueba1-card-section-box">
-          {props.data.possible_nationalities.length !== 0 ? paintNationalities() : "Couldn't guess the nationality, sorry!"}
-        </div>
+        <article className="main__prueba1-card-section-box">
+          {props.data.possible_nationalities.length !== 0 ? paintNationalities() : <p className="main__prueba1-card-section-box-error">Couldn't guess the nationality, sorry!</p>}
+        </article>
 
       </article>
     </section>
