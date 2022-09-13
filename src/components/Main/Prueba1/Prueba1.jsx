@@ -16,7 +16,7 @@ const Prueba1 = () => {
         try {
           if (name !== "") {
 
-            // Axios. Normally the API URL's should be in environment variables (process.env.REACT_APP_gender_url, etc...)
+            // Axios. Usually the API URLs should be in environment variables (process.env.REACT_APP_gender_url, etc...)
             const getGender = await axios.get(`http://localhost:3200/api/genderize/${name}`);
             const getNationality = await axios.get(`http://localhost:3200/api/nationalize/${name}`);
             const getAge = await axios.get(`http://localhost:3200/api/agify/${name}`);
