@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { v4 as uuidv4 } from 'uuid';
+
+import NameCard from "./NameCard/NameCard";
 
 const Prueba1 = () => {
   const [name, setName] = useState("");
@@ -8,17 +11,15 @@ const Prueba1 = () => {
   useEffect(
     () => {
       const fetchData = async () => {
-        try {
-          if (name != "") {
-            // Setting the URL's
-            const apiGender = `http://localhost:3200/api/genderize/${name}`;
-            const apiNationality = `http://localhost:3200/api/nationalize/${name}`;
-            const apiAge = `http://localhost:3200/api/agify/${name}`;
 
-            // Axios
-            const getGender = await axios.get(apiGender);
-            const getNationality = await axios.get(apiNationality);
-            const getAge = await axios.get(apiAge);
+        // MISSING VALIDATIONS
+        try {
+          if (name !== "") {
+
+            // Axios. Normally the API URL's should be in environment variables (process.env.REACT_APP_gender_url, etc...)
+            const getGender = await axios.get(`http://localhost:3200/api/genderize/${name}`);
+            const getNationality = await axios.get(`http://localhost:3200/api/nationalize/${name}`);
+            const getAge = await axios.get(`http://localhost:3200/api/agify/${name}`);
 
             // Receiving the API calls
             axios.all([getGender, getNationality, getAge])
@@ -30,7 +31,16 @@ const Prueba1 = () => {
                 const info3 = info[2].data;
 
                 // Combining it in one array
-                const allData = [info1, info2, info3];
+                const allData = [
+                  {
+                    name: info1.name,
+                    gender: info1.gender,
+                    probability: info1.probability,
+                    possible_nationalities: info2.country,
+                    possible_age: info3.age
+                  }
+                ];
+                console.log(allData);
 
                 // Setting the state
                 setData(allData);
@@ -50,12 +60,19 @@ const Prueba1 = () => {
     setName(event.target.name.value);
   };
 
+  const paintCard = () => {
+    return data.map(item => (
+      <NameCard key={uuidv4()} data={item} />
+    ))
+  };
+
   return (
-    <section>
+    <section className="main__prueba1">
       <form onSubmit={handleSubmit}>
-        <input name="name" placeholder="Tu nombre"/>
+        <input name="name" placeholder="Tu nombre" />
         <button type="submit">Search</button>
       </form>
+      {data.length !== 0 ? paintCard() : ""}
     </section>
   );
 };

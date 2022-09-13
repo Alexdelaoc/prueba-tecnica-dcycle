@@ -13,3 +13,18 @@
 .header__link {
   color: #61dafb;
 }
+
+.main__prueba1 {
+  margin-top: 3vh;
+}
+
+.main__prueba1-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.main__prueba1-card-nationalities {
+  display: flex;
+  flex-direction: column;
+}

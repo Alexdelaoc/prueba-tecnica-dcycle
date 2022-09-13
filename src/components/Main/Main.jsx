@@ -6,7 +6,7 @@ import { Route, Routes } from "react-router-dom";
 
 const Main = () => {
   return(
-    <main>
+    <main className="main">
       <Routes>
         <Route element={<Prueba1/>} path="/prueba1"/>
         <Route element={<Prueba2/>} path="/prueba2"/>
