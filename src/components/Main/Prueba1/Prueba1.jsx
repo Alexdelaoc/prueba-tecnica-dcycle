@@ -68,8 +68,9 @@ const Prueba1 = () => {
 
   return (
     <section className="main__prueba1">
+      <h3>Insert any name you can think of</h3>
       <form onSubmit={handleSubmit}>
-        <input name="name" placeholder="Tu nombre" />
+        <input name="name" placeholder="Any name" />
         <button type="submit">Search</button>
       </form>
       {data.length !== 0 ? paintCard() : ""}

@@ -5,6 +5,7 @@
 
 .header {
   background-color: #282c34;
+  box-shadow: 5px 10px 15px 1px rgba(0, 0, 0, 0.253);
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -16,34 +17,59 @@
 }
 
 .main__prueba1 {
-  margin-top: 3vh;
+  margin: 3rem
 }
 
 .main__prueba1-card {
+  background-color: #EEFBFA;
+  margin: 2rem;
+  padding: 10px;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: rgba(0, 0, 0, 0.253);
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   flex-direction: column;
+}
+
+.main__prueba1-card:hover {
+  box-shadow: 5px 10px 20px 1px rgba(0, 0, 0, 0.253);
+  transition: ease-in-out 1s;
 }
 
 .main__prueba1-card-section {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  flex-direction: row;
-  width: 70vw;
+  flex-direction: column;
+  width: 80vw;
 }
 
-/*.main__prueba1-card-section-box {
-  flex: 50%;
-}*/
+.main__prueba1-card-section-box {
+  display: flex;
+  justify-content: space-between;
+}
 
-.main__prueba1-card-nationalities {
+.main__prueba1-card-section-box > p {
+  margin: 0 3vw;
+  width: 20vw;
+}
+
+.main__prueba1-card-section-box > article {
+  margin: 0 3vw;
+  width: 20vw;
+}
+
+.main__prueba1-card-section-box-nationalities {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
+
 }
 
-.main__prueba1-card-nationalities-flag {
-  width: 5vw;
+.main__prueba1-card-section-box-nationalities-flag {
+  width: 8vw;
 }
