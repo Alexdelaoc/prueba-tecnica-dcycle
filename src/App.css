@@ -41,7 +41,7 @@
 
 .main__prueba1-card:hover {
   box-shadow: 5px 10px 20px 1px rgba(0, 0, 0, 0.253);
-  transition: ease-in-out 1s;
+  transition: ease-in-out 0.5s;
 }
 
 .main__prueba1-card-section {
