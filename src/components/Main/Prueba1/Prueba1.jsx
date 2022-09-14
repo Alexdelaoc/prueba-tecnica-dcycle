@@ -40,7 +40,6 @@ const Prueba1 = () => {
                     possible_age: info3.age
                   }
                 ];
-                console.log(allData);
 
                 // Setting the state
                 setData(allData);
@@ -52,7 +51,7 @@ const Prueba1 = () => {
         }
       }
       fetchData()
-    }, [name]
+    }, [name] // Keeping track of the name state, so information updates everytime name changes.
   );
 
   const handleSubmit = (event) => {
