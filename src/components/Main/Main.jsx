@@ -5,11 +5,11 @@ import Prueba2 from "./Prueba2/Prueba2";
 import { Route, Routes } from "react-router-dom";
 
 const Main = () => {
-  return(
+  return (
     <main className="main">
       <Routes>
-        <Route element={<Prueba1/>} path="/prueba1"/>
-        <Route element={<Prueba2/>} path="/prueba2"/>
+        <Route element={<Prueba1 />} path="/prueba1" />
+        <Route element={<Prueba2 />} path="/prueba2" />
       </Routes>
     </main>
   )

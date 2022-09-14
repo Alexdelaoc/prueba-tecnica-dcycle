@@ -105,6 +105,7 @@
 
 #prueba2__main-title {
   background-image: url("./assets/background-Covid19.jpg");
+  background-color: #04222e;
   background-repeat: no-repeat;
   background-position: center center;
   width: inherit;
@@ -115,6 +116,7 @@
 }
 
 #prueba2__main-section {
+  background-color: #e0fff8;
   margin-top: 5vh;
   padding: 0 1.5vw;
   display: flex;
