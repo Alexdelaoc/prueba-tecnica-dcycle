@@ -45,8 +45,11 @@ const Prueba2 = () => {
   return (
     <section className="prueba2__main">
       <h1 id="prueba2__main-title">The COVID Tracking Project</h1>
+
       {loading === false ? <h3 id="prueba2__main-section-date">Data for {info[0].date} at the US</h3> : ""}
-      <p>Not receiving new data since March 7, 2021</p>
+      
+      {loading === false ? <p>Not receiving new data since March 7, 2021</p> : ""}
+      
       {loading === false
         ? <section id="prueba2__main-section">
             <article className="prueba2__main-section-box">

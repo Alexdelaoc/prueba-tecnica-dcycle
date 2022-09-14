@@ -89,8 +89,13 @@
   width: 8vw;
 }
 
+
+
+/* Prueba 2 */
+
 .prueba2__main {
-  background-color: #f4fffe;
+  background-color: #e0fff8;
+  color: #194b5f; 
   height: 100vh;
   box-sizing: border-box;
   display: flex;
@@ -174,7 +179,7 @@
 }
 
 .loading-spinner {
-  margin-top: 30vh;
+  margin-top: 20vh;
   width: 5vw;
   align-self: center;
 }
