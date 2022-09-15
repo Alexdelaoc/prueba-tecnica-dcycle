@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState } from "react";
+import { useCustomFetch } from "../../../hooks/useCustomFetch";
 import { v4 as uuidv4 } from 'uuid';
 
 import loadingGif from "../../../assets/loading.gif"
@@ -7,56 +7,8 @@ import NameCard from "./NameCard/NameCard";
 
 const Prueba1 = () => {
   const [name, setName] = useState(""); // Holds the value of the text input
-  const [data, setData] = useState([]); // Holds the data response
-  const [loading, setLoading] = useState(false)
 
-  useEffect(
-    () => {
-      const fetchData = async () => {
-        try {
-          if (name !== "") {
-
-            // If name is not empty, the loading state goes true.
-            setLoading(true)
-            // Axios. Usually the API URLs should be in environment variables (process.env.REACT_APP_gender_url, etc...)
-            const getGender = await axios.get(`http://localhost:3200/api/genderize/${name}`);
-            const getNationality = await axios.get(`http://localhost:3200/api/nationalize/${name}`);
-            const getAge = await axios.get(`http://localhost:3200/api/agify/${name}`);
-
-            // Receiving the API calls
-            axios.all([getGender, getNationality, getAge])
-              .then(axios.spread((...info) => {
-
-                // Selecting desired information
-                const info1 = info[0].data;
-                const info2 = info[1].data;
-                const info3 = info[2].data;
-
-                // Combining it in one array
-                const allData = [
-                  {
-                    name: info1.name,
-                    gender: info1.gender,
-                    probability: info1.probability,
-                    possible_nationalities: info2.country,
-                    possible_age: info3.age
-                  }
-                ];
-
-                // Setting the states
-                setData(allData);
-                setLoading(false);
-              }))
-          }
-        } catch (e) {
-          console.log(e);
-          setName("");
-          setLoading(false)
-        }
-      }
-      fetchData()
-    }, [name] // Keeping track of the name state, so information updates everytime name changes.
-  );
+  const { loading, info } = useCustomFetch("http://localhost:3200/api/genderize/", "http://localhost:3200/api/nationalize/", "http://localhost:3200/api/agify/", name)
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -64,7 +16,7 @@ const Prueba1 = () => {
   };
 
   const paintCard = () => {
-    return data.map(item => (
+    return info.map(item => (
       <NameCard key={uuidv4()} data={item} />
     ))
   };

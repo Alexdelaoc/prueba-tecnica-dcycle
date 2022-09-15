@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { useAxiosPrueba2 } from "../../../hooks/useAxiosPrueba2";
-import axios from "axios";
+import React, { useState } from "react";
+import { useCustomFetch } from "../../../hooks/useCustomFetch";
 import loadingGif from "../../../assets/loading.gif"
 
 const Prueba2 = () => {
 
   const [date, setDate] = useState(""); // Holds the value for the date input
-  const {loading, info} = useAxiosPrueba2();
+  const { loading, info } = useCustomFetch("http://localhost:3200/api/covid/historical");
 
   const addThousandsDots = (x) => {
     if (x === null) { // For values in JSON response's keys that are null.
