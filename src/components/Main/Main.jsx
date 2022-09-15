@@ -8,8 +8,8 @@ const Main = () => {
   return (
     <main className="main">
       <Routes>
-        <Route element={<Prueba1 />} path="/prueba1" />
-        <Route element={<Prueba2 />} path="/prueba2" />
+        <Route element={<Prueba1 />} path="/" />
+        <Route element={<Prueba2 />} path="/2" />
       </Routes>
     </main>
   )
