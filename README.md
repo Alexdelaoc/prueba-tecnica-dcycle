@@ -1,2 +1,2 @@
 ### Prueba técnica para Dcycle.
-![Dcycle](./src/assets/Dcycle_logo.jpg)
+![Dcycle](./src/assets/Dcycle_logo.png)
