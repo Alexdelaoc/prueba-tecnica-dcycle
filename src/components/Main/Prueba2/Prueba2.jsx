@@ -1,31 +1,15 @@
 import React, { useEffect, useState } from "react";
+import { useAxiosPrueba2 } from "../../../hooks/useAxiosPrueba2";
 import axios from "axios";
 import loadingGif from "../../../assets/loading.gif"
 
 const Prueba2 = () => {
 
-  const [info, setInfo] = useState([]);
-  const [date, setDate] = useState("");
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        axios.get("http://localhost:3200/api/covid/historical")
-          .then((res) => {
-            setInfo(res.data.data)
-            setLoading(false)
-          })
-      } catch (e) {
-        console.log(e);
-      }
-    }
-    fetchData();
-  }, [] // Only gets triggered once the component is first rendered, and never again.
-  );
+  const [date, setDate] = useState(""); // Holds the value for the date input
+  const {loading, info} = useAxiosPrueba2();
 
   const addThousandsDots = (x) => {
-    if (x === null) { // For values in JSON response that are null.
+    if (x === null) { // For values in JSON response's keys that are null.
       return "N/A"
     } else {
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')

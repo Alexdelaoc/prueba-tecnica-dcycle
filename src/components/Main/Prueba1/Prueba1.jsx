@@ -6,8 +6,8 @@ import loadingGif from "../../../assets/loading.gif"
 import NameCard from "./NameCard/NameCard";
 
 const Prueba1 = () => {
-  const [name, setName] = useState("");
-  const [data, setData] = useState([]);
+  const [name, setName] = useState(""); // Holds the value of the text input
+  const [data, setData] = useState([]); // Holds the data response
   const [loading, setLoading] = useState(false)
 
   useEffect(
@@ -16,7 +16,7 @@ const Prueba1 = () => {
         try {
           if (name !== "") {
 
-            // If name contains data, the loading state goes true.
+            // If name is not empty, the loading state goes true.
             setLoading(true)
             // Axios. Usually the API URLs should be in environment variables (process.env.REACT_APP_gender_url, etc...)
             const getGender = await axios.get(`http://localhost:3200/api/genderize/${name}`);
