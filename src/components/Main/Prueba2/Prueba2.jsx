@@ -21,11 +21,11 @@ const Prueba2 = () => {
       }
     }
     fetchData();
-  }, []
+  }, [] // Only gets triggered once the component is first rendered, and never again.
   );
 
   const addThousandsDots = (x) => {
-    if (x === null) {
+    if (x === null) { // For values in JSON response that are null.
       return "N/A"
     } else {
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
@@ -33,12 +33,10 @@ const Prueba2 = () => {
   };
 
   // eslint-disable-next-line
-  let index = info.findIndex(item => item.date == date);
+  let index = info.findIndex(item => item.date == date); // Finds the index corresponding to the element of the array that matches the value given by the date type input.
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(event.target.name.value);
-    console.log(index)
     setDate(event.target.name.value);
   };
 
