@@ -1,0 +1,25 @@
+//// Ejercicio 3. Si tuvieses que modelar el funcionamiento de una pandemia zombie: ¿Qué factores tendrías en cuenta para modelar esto mediante la programación y que variables crearías? ////
+
+Si entendemos por pandemia zombie una epidemia provocada por personas infectadas por una enfermedad vírica transmitida únicamente mediante un mordisco se podrían tener en cuenta diversas variables:
+
+GENERALES
+-Variable T: Tiempo desde el inicio de la pandemia, medible en horas.
+-Variable M: Total de seres humanos en el mundo antes de la pandemia (Para poder llevar un control del porcentaje infectado)
+-Variable Z: Número de personas infectadas que transmiten activamente la enfermedad.
+-Variable H: Número de personas no infectadas.
+
+Estas variables se ven directamente afectadas tanto entre ellas como por las específicas de abajo y nos ayudan a mantener un control de cómo avanza la pandemia zombie.
+
+ESPECÍFICAS
+-Variable X: Probabilidad de que un infectado muerda e infecte a un no infectado.
+-Variable K: Probabilidad de que un no infectado mate a un infectado.
+-Variable P: Probabilidad de que un no infectado mate a otro.
+-Variable V: Velocidad a la que los infectados recorren 1 kilómetro.
+
+Podemos asumir que una persona 1 hora después del inicio de la pandemia tiene un mindset completamente distinto al de una persona que lleva mucho más tiempo sumida en el apocalipsis zombie, estará más alerta, sabrá qué lugares o situaciones evitar para aguantar sin ser infectado el mayor tiempo posible. Por lo tanto, conforme crece la variable T, K aumenta y X disminuye. Aunque personalmente diría que K aumentaría mucho más lentamente de lo que decrecería X, ya que matar a un zombie es más difícil que ser mordido por uno (sin añadir que los no infectados necesitarían agua, comida, descanso y medicinas para estar en plenas capacidades y evitar efectivamente la infección). También habría que tener en cuenta el cómo sentaría la anarquía de una pandemia zombie repentina al mundo, y si los no infectados llegarían a matarse los unos a los otros por los recursos necesarios para su supervivencia. Por lo tanto, P afecta también negativamente a la prosperidad de la humanidad en medio de una pandemia zombie, y entorpecería la reducción de la variable X.
+
+También deberíamos tener en cuenta el lugar o lugares en los que surja la pandemia. Si esta surgiera en un núcleo de población elevado o cercano a varios núcleos, los números de las variables escalarían rápidamente y la humanidad estaría en problemas. No es lo mismo si surge en Teruel o Villasequilla a si surge en Madrid o Barcelona, zonas densamente pobladas. Si a ello le sumamos que la enfermedad apareciese simultáneamente en varios núcleos de densidad de población elevados a lo largo del mundo (por un ataque biológico terrorista o cualquier motivo similar), no tendríamos tiempo de controlar el problema a tiempo y el apocalipsis zombie al estilo "The Walking Dead" ocurriría sin dudas. La variable V determinaría la velocidad a la que la infección se propagaría, ya que si los zombies fuesen excesivamente lentos las poblaciones cercanas a los núcleos de infección tendrían más tiempo para prepararse para el ataque de los zombies, y su impacto podría reducir variables como X o Z.
+
+Gracias por vuestro tiempo.
+
+-Alejandro de la Orden Collado
